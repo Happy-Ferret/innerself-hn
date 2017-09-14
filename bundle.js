@@ -41,7 +41,7 @@
   `},ta=ja((b,c)=>{const{items:d}=c,e=d.map((a)=>L(b,a)).filter((a)=>a&&"story"===a.type);return a`
     <div class="article-list">
       <div>
-        ${e.map((a,b)=>sa({item:a,index:b}))}
+        ${e.length?e.map((a,b)=>sa({item:a,index:b})):"(no items)"}
       </div>
     </div>
   `}),ua=(a,b)=>{const{submissions:d,router:e}=a,{items:g,requesting:h}=d,i=g[b];return i?ta({items:i}):(h[b]||f(c(b)),ra())},va=(b)=>a`
