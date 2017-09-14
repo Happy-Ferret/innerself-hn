@@ -62,7 +62,7 @@
       </div>
       ${m}
     </div>
-  `}),xa=(b)=>{const{id:c=""}=b.router.query||{},{requesting:e}=b.submissions,g=L(b,c);if(!g)return e[c]||f(d(c)),ra();if("story"!==g.type)return"";const{kids:h}=g,i=h?h.map((a)=>wa({id:a})).join(""):"(no comments)";return a`
+  `}),xa=(b)=>{const{id:c=""}=b.router.query||{},{requesting:e}=b.submissions,g=L(b,c);if(!c)return la();if(!g)return e[c]||f(d(c)),ra();if("story"!==g.type)return"";const{kids:h}=g,i=h?h.map((a)=>wa({id:a})).join(""):"(no comments)";return a`
     ${sa({item:g})}
     <div class="comments">
       ${""===i?ra():i}
