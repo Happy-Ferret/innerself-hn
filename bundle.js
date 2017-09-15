@@ -26,16 +26,21 @@
   <div class="loading">
     loading...
   </div>
-`,sa=({item:b,index:c})=>{const d=na({path:"user",text:`${b.by}`,className:"article-link",query:{id:b.by||""}}),e=na({path:"item",text:`${b.descendants||0} comments`,className:"article-link",query:{id:b.id.toString()}}),f="undefined"==typeof c?"":a`<div class="article-index">
+`,sa=({item:b,index:c,text:d})=>{const e=na({path:"user",text:`${b.by}`,className:"article-link",query:{id:b.by||""}}),f=na({path:"item",text:`${b.descendants||0} comments`,className:"article-link",query:{id:b.id.toString()}}),g="undefined"==typeof c?"":a`<div class="article-index">
         ${c+1}.
-      </div>`;return a`
+      </div>`,h=d?a`
+    <div class="article-text">
+      ${b.text}
+    </div>
+  `:"";return a`
     <div class="article">
-      ${f}
+      ${g}
       <div>
         <a class="article-title" href="${b.url||"#"}">${b.title}</a>
         <div class="article-info">
-        ${b.score} points by ${d} ${p(b.time)} | ${e}
+        ${b.score} points by ${e} ${p(b.time)} | ${f}
         </div>
+        ${h}
       </div>
     </div>
   `},ta=ja((b,c)=>{const{items:d}=c,e=d.map((a)=>L(b,a)).filter((a)=>a&&"story"===a.type);return a`
@@ -63,7 +68,7 @@
       ${m}
     </div>
   `}),xa=(b)=>{const{id:c=""}=b.router.query||{},{requesting:e}=b.submissions,g=L(b,c);if(!c)return la();if(!g)return e[c]||f(d(c)),ra();if("story"!==g.type)return"";const{kids:h}=g,i=h?h.map((a)=>wa({id:a})).join(""):"(no comments)";return a`
-    ${sa({item:g})}
+    ${sa({item:g,text:!0})}
     <div class="comments">
       ${""===i?ra():i}
     </div>
