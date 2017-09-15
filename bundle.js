@@ -23,7 +23,7 @@
     </div>
   </div>
 `,ra=()=>a`
-  <div class="loading">
+  <div class="loader">
     loading...
   </div>
 `,sa=({item:b,index:c,text:d})=>{const e=na({path:"user",text:`${b.by}`,className:"article-link",query:{id:b.by||""}}),f=na({path:"item",text:`${b.descendants||0} comments`,className:"article-link",query:{id:b.id.toString()}}),g="undefined"==typeof c?"":a`<div class="article-index">
